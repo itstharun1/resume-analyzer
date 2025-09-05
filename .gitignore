@@ -1,3 +1,16 @@
 node_modules/
 build/
 .env
+
+
+# Node modules
+node_modules/
+
+# React build
+frontend/build/
+
+# Environment variables
+.env
+
+# Logs
+*.log
