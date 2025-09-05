@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import API from '../api';
 
 export default function ResumeUploader({ onResult }) {
   const [file, setFile] = useState(null);
@@ -12,7 +13,7 @@ export default function ResumeUploader({ onResult }) {
     form.append('resume', file);
     try {
       setLoading(true);
-      const res = await axios.post('/api/resumes/upload', form, {
+      const res = await API.post('/api/resumes/upload', form, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       onResult(res.data.analysis);

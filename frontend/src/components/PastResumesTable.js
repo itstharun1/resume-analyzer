@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import API from '../api';
 
 export default function PastResumesTable({ onSelect }) {
   const [rows, setRows] = useState([]);
@@ -8,7 +9,7 @@ export default function PastResumesTable({ onSelect }) {
   useEffect(() => {
     async function fetchAll() {
       try {
-        const res = await axios.get('/api/resumes');
+        const res = await API.get('/api/resumes');
         setRows(res.data);
       } catch (err) {
         console.error(err);
